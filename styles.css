@@ -3,13 +3,14 @@ body {
   background-color: #f7f7f7;
   color: #222;
   margin: 0;
-  padding: 20px 40px;
+  padding: 20px 20px; /* قللت البادينج ليشمل الشاشات الصغيرة */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 .dark {
   background-color: #121212;
   color: #eee;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -17,12 +18,16 @@ header {
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-bottom: 2px solid #ddd;
+  flex-wrap: wrap; /* عشان يتجاوب مع الشاشات الصغيرة */
+  gap: 10px;
 }
 header h1 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   margin: 0;
   font-weight: 700;
+  flex-grow: 1; /* ياخذ مساحة أكبر */
 }
+
 .header-controls button {
   margin-left: 10px;
   background-color: #007bff;
@@ -33,22 +38,27 @@ header h1 {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 .header-controls button:hover {
   background-color: #0056b3;
 }
+
+/* شبكة المنتجات */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* عرض مرن مع حد أدنى 250 */
+  gap: 20px;
 }
+
+/* منتج */
 .product {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   overflow: hidden;
   text-align: center;
-  padding: 20px 15px;
+  padding: 15px;
   transition: box-shadow 0.3s ease;
 }
 body.dark .product {
@@ -63,16 +73,16 @@ body.dark .product {
   height: 160px;
   object-fit: cover;
   border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .product h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
   font-weight: 600;
 }
 .product p {
   font-size: 1.1rem;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 700;
   color: #007bff;
 }
@@ -80,7 +90,7 @@ body.dark .product {
   background-color: #007bff;
   border: none;
   color: white;
-  padding: 12px 28px;
+  padding: 10px 25px;
   border-radius: 30px;
   font-size: 1rem;
   cursor: pointer;
@@ -89,7 +99,8 @@ body.dark .product {
 .product button:hover {
   background-color: #0056b3;
 }
-/* --- سلة المشتريات --- */
+
+/* سلة المشتريات */
 .cart {
   position: fixed;
   top: 80px;
@@ -102,6 +113,7 @@ body.dark .product {
   padding: 20px;
   overflow-y: auto;
   z-index: 1000;
+  transition: transform 0.3s ease;
 }
 body.dark .cart {
   background: #222;
@@ -188,4 +200,39 @@ body.dark .cart-item {
 }
 #closeCart:hover {
   background-color: #0056b3;
+}
+
+/* --- تحسين للهواتف --- */
+@media (max-width: 480px) {
+  body {
+    padding: 15px 10px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    flex-grow: unset;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .header-controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .products-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .cart {
+    width: 95vw;
+    max-height: 60vh;
+    right: 50%;
+    transform: translateX(50%);
+    top: 70px;
+  }
+  .product img {
+    height: 140px;
+  }
 }
