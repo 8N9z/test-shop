@@ -1,8 +1,8 @@
 // Product list
 const products = [
-    { name: "جمال", price: "$3", image: "" },
-    { name: "سعد", price: "$2", image: "" },
-    { name: "احمد", price: "$2.5", image: "" },
+    { name: "وجبة برجر لحم", price: "$15", image: "https://unsplash.com/photos/burger-with-cheese-and-lettuce-Op6iy0YoYzg" },
+    { name: "برجر دجاج", price: "$7", image: "https://unsplash.com/photos/a-fried-chicken-sandwich-on-a-wooden-table-UDYjeBwFZf8" },
+    { name: "دجاج مشوي", price: "$10", image: "https://unsplash.com/photos/fried-chicken-on-stainless-steel-tray-3Uj0GwVmOeY" },
 
 ];
 
