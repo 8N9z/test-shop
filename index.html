@@ -10,11 +10,24 @@
 
 <header>
   <h1>شوايه عبادي</h1>
-  <button id="darkModeToggle">🌙 وضع داكن</button>
+  <div class="header-controls">
+    <button id="darkModeToggle">🌙 وضع داكن</button>
+    <button id="cartBtn">🛒 السلة (<span id="cart-count">0</span>)</button>
+  </div>
 </header>
 
 <main>
   <div id="product-list" class="products-grid"></div>
+
+  <!-- صندوق السلة -->
+  <div id="cart" class="cart hidden">
+    <h2>سلة المشتريات</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">
+      <strong>الإجمالي: </strong><span id="cart-total-price">0</span>$
+    </div>
+    <button id="closeCart">إغلاق</button>
+  </div>
 </main>
 
 <script src="script.js"></script>
