@@ -1,0 +1,107 @@
+/* --- تنسيقات عامة --- */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f7f7f7;
+  color: #222;
+  margin: 0;
+  padding: 20px 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark {
+  background-color: #121212;
+  color: #eee;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ddd;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+#darkModeToggle {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #0056b3;
+}
+
+/* --- شبكة عرض المنتجات --- */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 24px;
+}
+
+/* --- بطاقة المنتج --- */
+.product {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 20px 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+body.dark .product {
+  background-color: #1f1f1f;
+  box-shadow: 0 6px 18px rgba(255,255,255,0.1);
+}
+
+.product:hover {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.product h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.product p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #007bff;
+}
+
+.product button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product button:hover {
+  background-color: #0056b3;
+}
