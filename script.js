@@ -1,115 +1,43 @@
-:root {
-    --bg-color: #f4f4f4;
-    --text-color: #333;
-    --header-bg: #0d6efd;
-    --header-text: white;
-    --card-bg: white;
-    --card-text: #0d6efd;
-    --footer-bg: #222;
-}
+// Product list
+const products = [
+    { name: "جمال", price: "$3", image: "" },
+    { name: "سعد", price: "$2", image: "" },
+    { name: "احمد", price: "$2.5", image: "" },
 
-body.dark {
-    --bg-color: #121212;
-    --text-color: #ddd;
-    --header-bg: #1f1f1f;
-    --header-text: #ddd;
-    --card-bg: #1e1e1e;
-    --card-text: #4dabf7;
-    --footer-bg: #1a1a1a;
-}
+];
 
-body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    margin: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
-}
+// Render products
+const productList = document.getElementById("product-list");
+products.forEach(product => {
+    const item = document.createElement("div");
+    item.classList.add("product");
+    item.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.price}</p>
+        <button>Add to cart</button>
+    `;
+    productList.appendChild(item);
+});
 
-/* Header */
-header {
-    background: var(--header-bg);
-    color: var(--header-text);
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+// Dark Mode toggle
+const darkToggle = document.getElementById("darkModeToggle");
 
-header h1 {
-    margin: 0;
-}
+darkToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-}
+    // Change button text
+    if (document.body.classList.contains("dark")) {
+        darkToggle.textContent = "☀️ Light Mode";
+        localStorage.setItem("theme", "dark");
+    } else {
+        darkToggle.textContent = "🌙 Dark Mode";
+        localStorage.setItem("theme", "light");
+    }
+});
 
-nav a {
-    color: var(--header-text);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-/* Product Grid */
-main {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-}
-
-/* Product Card */
-.product {
-    background: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    padding: 1rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-}
-
-.product img {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
-.product h3 {
-    margin: 0.8rem 0 0.4rem;
-}
-
-.product p {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: var(--card-text);
-}
-
-/* Buttons */
-button {
-    background: var(--card-text);
-    color: white;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.2s ease;
-}
-
-button:hover {
-    background: #084298;
-}
-
-/* Footer */
-footer {
-    background: var(--footer-bg);
-    color: var(--header-text);
-    text-align: center;
-    padding: 1rem;
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    darkToggle.textContent = "☀️ Light Mode";
 }
