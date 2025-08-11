@@ -89,7 +89,6 @@ body.dark .product {
 .product button:hover {
   background-color: #0056b3;
 }
-
 /* --- سلة المشتريات --- */
 .cart {
   position: fixed;
@@ -162,4 +161,31 @@ body.dark .cart-item {
   height: 25px;
   font-size: 18px;
   border-radius: 5px;
-  cursor: poi
+  cursor: pointer;
+  line-height: 1;
+}
+.cart-item-qty span {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+.cart-total {
+  font-size: 1.3rem;
+  margin-top: 15px;
+  text-align: center;
+}
+#closeCart {
+  display: block;
+  margin: 15px auto 0 auto;
+  padding: 10px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+#closeCart:hover {
+  background-color: #0056b3;
+}
